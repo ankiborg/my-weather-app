@@ -27,11 +27,11 @@ export default function CityDisplay({ data }: CityDisplayProps) {
   return (
     <section aria-live="polite" aria-label={`Weather for ${current.city}`} className="space-y-4">
       {/* Current conditions */}
-      <Card className="shadow-md">
+      <Card className="relative glass-specular">
         <CardHeader className="pb-2">
-          <CardTitle className="text-xl sm:text-2xl flex items-center gap-2">
+          <CardTitle className="text-xl sm:text-2xl flex items-center gap-2 text-white">
             {current.city}
-            <span className="text-base font-normal text-muted-foreground">
+            <span className="text-base font-normal text-white/55">
               {current.country}
             </span>
           </CardTitle>
@@ -44,40 +44,40 @@ export default function CityDisplay({ data }: CityDisplayProps) {
               alt={current.description}
               width={80}
               height={80}
-              className="-ml-2 -my-2"
+              className="-ml-2 -my-2 mix-blend-screen"
             />
             <div>
-              <p className="text-6xl font-bold text-foreground leading-none">
+              <p className="text-6xl font-bold text-white leading-none tracking-tight">
                 {current.temperature}°C
               </p>
-              <p className="text-muted-foreground mt-1 italic">
+              <p className="text-white/70 mt-1">
                 {capitalize(current.description)}
               </p>
             </div>
           </div>
 
           {/* Stats row */}
-          <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+          <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/60">
             <span className="flex items-center gap-1.5">
-              <Droplets className="h-4 w-4 text-primary" aria-hidden="true" />
-              Humidity: <strong className="text-foreground">{current.humidity}%</strong>
+              <Droplets className="h-4 w-4 text-white/80" aria-hidden="true" />
+              Humidity: <strong className="text-white font-semibold">{current.humidity}%</strong>
             </span>
             <span className="flex items-center gap-1.5">
-              <Wind className="h-4 w-4 text-primary" aria-hidden="true" />
-              Wind: <strong className="text-foreground">{current.windSpeedKph} km/h</strong>
+              <Wind className="h-4 w-4 text-white/80" aria-hidden="true" />
+              Wind: <strong className="text-white font-semibold">{current.windSpeedKph} km/h</strong>
             </span>
-            <span className="text-muted-foreground">
-              Feels like: <strong className="text-foreground">{current.feelsLike}°C</strong>
+            <span>
+              Feels like: <strong className="text-white font-semibold">{current.feelsLike}°C</strong>
             </span>
             <span className="flex items-center gap-1.5">
-              <Sunrise className="h-4 w-4 text-primary" aria-hidden="true" />
-              <strong className="text-foreground">
+              <Sunrise className="h-4 w-4 text-white/80" aria-hidden="true" />
+              <strong className="text-white font-semibold">
                 {new Date(current.sunrise * 1000).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
               </strong>
             </span>
             <span className="flex items-center gap-1.5">
-              <Sunset className="h-4 w-4 text-primary" aria-hidden="true" />
-              <strong className="text-foreground">
+              <Sunset className="h-4 w-4 text-white/80" aria-hidden="true" />
+              <strong className="text-white font-semibold">
                 {new Date(current.sunset * 1000).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
               </strong>
             </span>
@@ -88,14 +88,14 @@ export default function CityDisplay({ data }: CityDisplayProps) {
       {/* 5-day forecast */}
       {forecast.length > 0 && (
         <div>
-          <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-2 px-1">
+          <h2 className="text-xs font-semibold text-white/50 uppercase tracking-widest mb-2 px-1">
             5-Day Forecast
           </h2>
           <div className="grid grid-cols-5 gap-2">
             {forecast.map((day) => (
-              <Card key={day.date} className="shadow-sm text-center">
+              <Card key={day.date} className="glass-subtle text-center">
                 <CardContent className="px-2 py-3 flex flex-col items-center gap-0.5">
-                  <p className="text-xs font-semibold text-muted-foreground uppercase">
+                  <p className="text-xs font-semibold text-white/55 uppercase tracking-wide">
                     {formatDay(day.date)}
                   </p>
                   <img
@@ -103,10 +103,10 @@ export default function CityDisplay({ data }: CityDisplayProps) {
                     alt={day.description}
                     width={48}
                     height={48}
-                    className="-my-1"
+                    className="-my-1 mix-blend-screen"
                   />
-                  <p className="text-sm font-bold text-foreground">{day.high}°</p>
-                  <p className="text-xs text-muted-foreground">{day.low}°</p>
+                  <p className="text-sm font-bold text-white">{day.high}°</p>
+                  <p className="text-xs text-white/55">{day.low}°</p>
                 </CardContent>
               </Card>
             ))}

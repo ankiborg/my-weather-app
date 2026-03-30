@@ -2,9 +2,10 @@ import SearchBar from "@/components/SearchBar";
 
 interface HeaderProps {
   onSearch: (city: string) => void;
+  isLoading?: boolean;
 }
 
-export default function Header({ onSearch }: HeaderProps) {
+export default function Header({ onSearch, isLoading }: HeaderProps) {
   return (
     <header className="bg-card border-b border-border shadow-sm" role="banner">
       <div className="container mx-auto max-w-3xl px-4 py-5 sm:py-6">
@@ -16,7 +17,7 @@ export default function Header({ onSearch }: HeaderProps) {
             Your cozy window to the weather outside
           </p>
         </div>
-        <SearchBar onSearch={onSearch} />
+        <SearchBar onSearch={onSearch} disabled={isLoading} />
       </div>
     </header>
   );

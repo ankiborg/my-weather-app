@@ -5,9 +5,10 @@ import { Search } from "lucide-react";
 
 interface SearchBarProps {
   onSearch: (city: string) => void;
+  disabled?: boolean;
 }
 
-export default function SearchBar({ onSearch }: SearchBarProps) {
+export default function SearchBar({ onSearch, disabled }: SearchBarProps) {
   const [inputValue, setInputValue] = useState("");
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -47,16 +48,17 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
         autoCapitalize="words"
         spellCheck={false}
         aria-label="City name"
+        disabled={disabled}
         className="flex-1 bg-background border-border placeholder:text-muted-foreground/70 placeholder:italic"
       />
       <Button
         type="submit"
-        disabled={!inputValue.trim()}
+        disabled={disabled || !inputValue.trim()}
         aria-label="Search for weather in entered city"
         className="shrink-0"
       >
         <Search className="h-4 w-4 mr-2" aria-hidden="true" />
-        <span>Search</span>
+        <span>{disabled ? "Searching…" : "Search"}</span>
       </Button>
     </form>
   );

@@ -10,6 +10,8 @@ export interface CurrentWeather {
   icon: string;
   humidity: number;
   windSpeedKph: number;
+  sunrise: number;
+  sunset: number;
 }
 
 export interface ForecastDay {
@@ -58,6 +60,8 @@ async function fetchCurrent(
     icon: d.weather[0].icon as string,
     humidity: d.main.humidity as number,
     windSpeedKph: Math.round((d.wind.speed as number) * 3.6),
+    sunrise: d.sys.sunrise as number,
+    sunset: d.sys.sunset as number,
   };
 }
 

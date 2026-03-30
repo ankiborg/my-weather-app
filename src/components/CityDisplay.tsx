@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Droplets, Wind } from "lucide-react";
+import { Droplets, Wind, Sunrise, Sunset } from "lucide-react";
 import type { WeatherResult } from "@/lib/weather";
 
 interface CityDisplayProps {
@@ -68,6 +68,18 @@ export default function CityDisplay({ data }: CityDisplayProps) {
             </span>
             <span className="text-muted-foreground">
               Feels like: <strong className="text-foreground">{current.feelsLike}°C</strong>
+            </span>
+            <span className="flex items-center gap-1.5">
+              <Sunrise className="h-4 w-4 text-primary" aria-hidden="true" />
+              <strong className="text-foreground">
+                {new Date(current.sunrise * 1000).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+              </strong>
+            </span>
+            <span className="flex items-center gap-1.5">
+              <Sunset className="h-4 w-4 text-primary" aria-hidden="true" />
+              <strong className="text-foreground">
+                {new Date(current.sunset * 1000).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+              </strong>
             </span>
           </div>
         </CardContent>

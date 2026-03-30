@@ -109,3 +109,20 @@ export async function fetchWeather(city: string): Promise<WeatherResult> {
   ]);
   return { current, forecast };
 }
+
+export async function fetchWeatherByCoords(lat: number, lon: number): Promise<WeatherResult> {
+  const res = await fetch(
+    `${BASE}/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${API_KEY}`
+  );
+  if (!res.ok) throw new Error("Could not identify your location. Please search manually.");
+  const data = (await res.json()) as { name: string; country: string }[];
+  if (data.length === 0)
+    throw new Error("No city found near your location. Please search manually.");
+
+  const { name, country } = data[0];
+  const [current, forecast] = await Promise.all([
+    fetchCurrent(lat, lon, name, country),
+    fetchForecast(lat, lon),
+  ]);
+  return { current, forecast };
+}

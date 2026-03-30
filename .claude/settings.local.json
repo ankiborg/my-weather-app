@@ -3,7 +3,8 @@
     "allow": [
       "Bash(npm show:*)",
       "Bash(npx shadcn@latest init --help)",
-      "Bash(npx shadcn@latest add --help)"
+      "Bash(npx shadcn@latest add --help)",
+      "WebFetch(domain:openweathermap.org)"
     ]
   }
 }

@@ -1,11 +1,13 @@
 import SearchBar from "@/components/SearchBar";
+import RecentSearches from "@/components/RecentSearches";
 
 interface HeaderProps {
   onSearch: (city: string) => void;
   isLoading?: boolean;
+  recentCities: string[];
 }
 
-export default function Header({ onSearch, isLoading }: HeaderProps) {
+export default function Header({ onSearch, isLoading, recentCities }: HeaderProps) {
   return (
     <header className="bg-card border-b border-border shadow-sm" role="banner">
       <div className="container mx-auto max-w-3xl px-4 py-5 sm:py-6">
@@ -18,6 +20,7 @@ export default function Header({ onSearch, isLoading }: HeaderProps) {
           </p>
         </div>
         <SearchBar onSearch={onSearch} disabled={isLoading} />
+        <RecentSearches cities={recentCities} onSelect={onSearch} disabled={isLoading} />
       </div>
     </header>
   );

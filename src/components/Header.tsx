@@ -9,14 +9,14 @@ interface HeaderProps {
 
 export default function Header({ onSearch, isLoading, recentCities }: HeaderProps) {
   return (
-    <header className="bg-card border-b border-border shadow-sm" role="banner">
+    <header className="sticky top-0 z-50 glass-surface" role="banner">
       <div className="container mx-auto max-w-3xl px-4 py-5 sm:py-6">
         <div className="mb-4 sm:mb-5">
-          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground leading-tight">
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white leading-tight">
             I made this Weather App
           </h1>
-          <p className="text-sm text-muted-foreground mt-1 italic">
-            Your cozy window to the weather outside
+          <p className="text-sm text-white/55 mt-1">
+            Your window to the weather outside
           </p>
         </div>
         <SearchBar onSearch={onSearch} disabled={isLoading} />

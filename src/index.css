@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: "Lora", Georgia, serif;
-  --font-heading: "Playfair Display", Georgia, serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, sans-serif;
+  --font-heading: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -48,70 +48,106 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-/* Warm journal palette */
+/* iOS Liquid Glass palette */
 :root {
-  --background: oklch(0.97 0.018 80);
-  --foreground: oklch(0.22 0.03 55);
-  --card: oklch(0.95 0.022 75);
-  --card-foreground: oklch(0.22 0.03 55);
-  --popover: oklch(0.95 0.022 75);
-  --popover-foreground: oklch(0.22 0.03 55);
-  --primary: oklch(0.52 0.13 55);
-  --primary-foreground: oklch(0.98 0.008 80);
-  --secondary: oklch(0.88 0.04 75);
-  --secondary-foreground: oklch(0.30 0.04 55);
-  --muted: oklch(0.91 0.025 70);
-  --muted-foreground: oklch(0.52 0.04 60);
-  --accent: oklch(0.87 0.055 55);
-  --accent-foreground: oklch(0.25 0.04 50);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.82 0.035 70);
-  --input: oklch(0.82 0.035 70);
-  --ring: oklch(0.52 0.13 55);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.75rem;
-  --sidebar: oklch(0.94 0.025 75);
-  --sidebar-foreground: oklch(0.22 0.03 55);
-  --sidebar-primary: oklch(0.52 0.13 55);
-  --sidebar-primary-foreground: oklch(0.98 0.008 80);
-  --sidebar-accent: oklch(0.87 0.055 55);
-  --sidebar-accent-foreground: oklch(0.25 0.04 50);
-  --sidebar-border: oklch(0.82 0.035 70);
-  --sidebar-ring: oklch(0.52 0.13 55);
+  --background: oklch(0.20 0.08 265);
+  --foreground: oklch(1 0 0);
+  --card: oklch(1 0 0 / 12%);
+  --card-foreground: oklch(1 0 0);
+  --popover: oklch(1 0 0 / 14%);
+  --popover-foreground: oklch(1 0 0);
+  --primary: oklch(1 0 0 / 90%);
+  --primary-foreground: oklch(0.22 0.08 265);
+  --secondary: oklch(1 0 0 / 8%);
+  --secondary-foreground: oklch(1 0 0 / 80%);
+  --muted: oklch(1 0 0 / 6%);
+  --muted-foreground: oklch(1 0 0 / 55%);
+  --accent: oklch(1 0 0 / 15%);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.65 0.22 25);
+  --border: oklch(1 0 0 / 18%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(1 0 0 / 40%);
+  --radius: 1rem;
+  --chart-1: oklch(0.75 0.18 200);
+  --chart-2: oklch(0.70 0.16 250);
+  --chart-3: oklch(0.65 0.14 280);
+  --chart-4: oklch(0.80 0.12 180);
+  --chart-5: oklch(0.72 0.20 220);
+  --sidebar: oklch(1 0 0 / 10%);
+  --sidebar-foreground: oklch(1 0 0);
+  --sidebar-primary: oklch(1 0 0 / 85%);
+  --sidebar-primary-foreground: oklch(0.22 0.08 265);
+  --sidebar-accent: oklch(1 0 0 / 12%);
+  --sidebar-accent-foreground: oklch(1 0 0);
+  --sidebar-border: oklch(1 0 0 / 18%);
+  --sidebar-ring: oklch(1 0 0 / 40%);
+
+  /* Glass layer tokens */
+  --glass-bg: oklch(1 0 0 / 12%);
+  --glass-bg-subtle: oklch(1 0 0 / 7%);
+  --glass-bg-strong: oklch(1 0 0 / 18%);
+  --glass-border: oklch(1 0 0 / 20%);
+  --glass-border-subtle: oklch(1 0 0 / 12%);
+  --glass-blur: 28px;
+  --glass-blur-subtle: 16px;
+  --glass-shadow: 0 8px 32px oklch(0 0 0 / 30%), 0 1px 0 oklch(1 0 0 / 10%) inset;
+  --glass-shadow-subtle: 0 4px 16px oklch(0 0 0 / 20%);
+  --glass-glow: 0 0 0 1px oklch(1 0 0 / 8%);
 }
 
-/* Warm dark mode */
+/* Dark mode — deeper background, glass tokens stay alpha-white */
 .dark {
-  --background: oklch(0.16 0.025 55);
-  --foreground: oklch(0.90 0.02 75);
-  --card: oklch(0.20 0.028 55);
-  --card-foreground: oklch(0.90 0.02 75);
-  --popover: oklch(0.20 0.028 55);
-  --popover-foreground: oklch(0.90 0.02 75);
-  --primary: oklch(0.72 0.13 65);
-  --primary-foreground: oklch(0.16 0.025 55);
-  --secondary: oklch(0.27 0.03 55);
-  --secondary-foreground: oklch(0.88 0.02 75);
-  --muted: oklch(0.27 0.03 55);
-  --muted-foreground: oklch(0.62 0.04 65);
-  --accent: oklch(0.30 0.04 55);
-  --accent-foreground: oklch(0.88 0.02 75);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.72 0.13 65);
-  --sidebar: oklch(0.20 0.028 55);
-  --sidebar-foreground: oklch(0.90 0.02 75);
-  --sidebar-primary: oklch(0.72 0.13 65);
-  --sidebar-primary-foreground: oklch(0.16 0.025 55);
-  --sidebar-accent: oklch(0.30 0.04 55);
-  --sidebar-accent-foreground: oklch(0.88 0.02 75);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.72 0.13 65);
+  --background: oklch(0.12 0.06 265);
+  --card: oklch(1 0 0 / 8%);
+  --glass-bg: oklch(1 0 0 / 8%);
+  --glass-bg-subtle: oklch(1 0 0 / 4%);
+  --glass-bg-strong: oklch(1 0 0 / 14%);
+}
+
+@layer utilities {
+  /* Primary glass surface — main cards, header */
+  .glass-surface {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow), var(--glass-glow);
+  }
+
+  /* Subtler glass — forecast cards, pill buttons */
+  .glass-subtle {
+    background: var(--glass-bg-subtle);
+    backdrop-filter: blur(var(--glass-blur-subtle)) saturate(160%);
+    -webkit-backdrop-filter: blur(var(--glass-blur-subtle)) saturate(160%);
+    border: 1px solid var(--glass-border-subtle);
+    box-shadow: var(--glass-shadow-subtle);
+  }
+
+  /* Specular top-edge highlight */
+  .glass-specular::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+      180deg,
+      oklch(1 0 0 / 18%) 0%,
+      oklch(1 0 0 / 0%) 50%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+/* Fallback for browsers without backdrop-filter support */
+@supports not (backdrop-filter: blur(1px)) {
+  .glass-surface {
+    background: oklch(0.22 0.10 265 / 90%);
+  }
+  .glass-subtle {
+    background: oklch(0.18 0.08 265 / 85%);
+  }
 }
 
 @layer base {
@@ -122,8 +158,12 @@
     @apply bg-background text-foreground;
     font-family: var(--font-sans);
     font-feature-settings: "kern" 1, "liga" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: -0.02em;
   }
 }

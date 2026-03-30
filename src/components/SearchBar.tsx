@@ -49,7 +49,7 @@ export default function SearchBar({ onSearch, disabled }: SearchBarProps) {
         spellCheck={false}
         aria-label="City name"
         disabled={disabled}
-        className="flex-1 bg-background border-border placeholder:text-muted-foreground/70 placeholder:italic"
+        className="flex-1 placeholder:text-white/40"
       />
       <Button
         type="submit"

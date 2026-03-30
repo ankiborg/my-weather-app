@@ -13,7 +13,7 @@ export default function Header({ onSearch, isLoading, recentCities }: HeaderProp
       <div className="container mx-auto max-w-3xl px-4 py-5 sm:py-6">
         <div className="mb-4 sm:mb-5">
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white leading-tight">
-            Annikas Weather App
+            I made this Weather App
           </h1>
           <p className="text-sm text-white/55 mt-1">
             Your window to the weather outside
